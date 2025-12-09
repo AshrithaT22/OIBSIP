@@ -1,22 +1,42 @@
-Task 1 -- Basic Network Scan using Nmap
+Task 2: Basic Firewall Configuration with UFW
 
-Objective
-To identify open ports and running services on a target system using Nmap.
+Overview
+The aim is to configure a basic firewall on a Linux system using UFW(Uncomplicated Firewall). 
+The objectives were:
+-Install UFW
+-Allow SSH
+-Deny HTTP
+-Enable firewall
+-Verify the active rules
 
-Commands Used
+Steps Performed
+1. Install UFW :
+ sudo apt update
+ sudo apt install ufw -y
 
-nmap 192.168.0.107 -- For Basic Scan
-nmap -sV 192.168.0.107 -- For Service with Version Scan
-nmap -sC 192.168.0.107 -- For Default Script Scan
-nmap -sV -sC 192.168.0.107 -oN nmap_scan_results.txt -- To save outputs of -sV and -sC
 
-File Included
-- nmap_scan_results.txt
-- scan.sh
+2. Allow SSH
+ sudo ufw allow ssh
 
-Summary 
-This scan identifies:
--Open ports
--Version of services
--Possible vulnerabilities
 
+3. Deny HTTP
+ sudo ufw deny http
+
+
+4. Enable the Firewall
+ sudo ufw enable
+
+
+5. Check Status of Rules
+ sudo ufw status numbered
+
+This displays all active firewall rules.
+
+
+Files included
+- ufw_configuration.sh
+- ufw_status_output.txt
+
+Conclusion
+UFW was successfully installed and configured.
+SSH traffic is allowed, HTTP traffic is denied, and the firewall is active with correct rules applied.
